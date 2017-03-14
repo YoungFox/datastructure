@@ -2,7 +2,7 @@
  #include"c1.h" /* 要将程序中所有#include命令所包含的文件拷贝到当前目录下 */
  /* 以下2行可根据需要选用一个（且只能选用一个），而不需改变基本操作bo1-1.c */
  typedef int ElemType; /* 定义抽象数据类型ElemType在本程序中为整型 */
- /*typedef double ElemType;  定义抽象数据类型ElemType在本程序中为双精度型 */
+ /*typedef double ElemType; /* 定义抽象数据类型ElemType在本程序中为双精度型 */
  #include"c1-1.h" /* 在此命令之前要定义ElemType的类型 */
  #include"bo1-1.c" /* 在此命令之前要包括c1-1.h文件（因为其中定义了Triplet） */
  void main()

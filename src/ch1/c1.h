@@ -1,19 +1,19 @@
- /* c1.h (锟斤拷锟斤拷锟斤拷) */
+ /* c1.h (程序名) */
  #include<string.h>
  #include<ctype.h>
- #include<malloc/malloc.h> /* malloc()锟斤拷 */
- #include<limits.h> /* INT_MAX锟斤拷 */
- #include<stdio.h> /* EOF(=^Z锟斤拷F6),NULL */
+ #include<malloc.h> /* malloc()等 */
+ #include<limits.h> /* INT_MAX等 */
+ #include<stdio.h> /* EOF(=^Z或F6),NULL */
  #include<stdlib.h> /* atoi() */
- #include<aio.h> /* eof() */
+ #include<io.h> /* eof() */
  #include<math.h> /* floor(),ceil(),abs() */
- #include<unistd.h> /* exit() */
- /* 锟斤拷锟斤拷锟斤拷锟斤拷状态锟斤拷锟斤拷 */
+ #include<process.h> /* exit() */
+ /* 函数结果状态代码 */
  #define TRUE 1
  #define FALSE 0
  #define OK 1
  #define ERROR 0
  #define INFEASIBLE -1
- /* #define OVERFLOW -2 锟斤拷为锟斤拷math.h锟斤拷锟窖讹拷锟斤拷OVERFLOW锟斤拷值为3,锟斤拷去锟斤拷锟斤拷锟斤拷 */
- typedef int Status; /* Status锟角猴拷锟斤拷锟斤拷锟斤拷锟斤拷,锟斤拷值锟角猴拷锟斤拷锟斤拷锟斤拷状态锟斤拷锟诫，锟斤拷OK锟斤拷 */
- typedef int Boolean; /* Boolean锟角诧拷锟斤拷锟斤拷锟斤拷,锟斤拷值锟斤拷TRUE锟斤拷FALSE */
+ /* #define OVERFLOW -2 因为在math.h中已定义OVERFLOW的值为3,故去掉此行 */
+ typedef int Status; /* Status是函数的类型,其值是函数结果状态代码，如OK等 */
+ typedef int Boolean; /* Boolean是布尔类型,其值是TRUE或FALSE */
