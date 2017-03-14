@@ -1,19 +1,19 @@
- /* c1.h (³ÌĞòÃû) */
+ /* c1.h (ç¨‹åºå) */
  #include<string.h>
  #include<ctype.h>
- #include<malloc.h> /* malloc()µÈ */
- #include<limits.h> /* INT_MAXµÈ */
- #include<stdio.h> /* EOF(=^Z»òF6),NULL */
+ #include<malloc.h> /* malloc()ç­‰ */
+ #include<limits.h> /* INT_MAXç­‰ */
+ #include<stdio.h> /* EOF(=^Zæˆ–F6),NULL */
  #include<stdlib.h> /* atoi() */
  #include<io.h> /* eof() */
  #include<math.h> /* floor(),ceil(),abs() */
  #include<process.h> /* exit() */
- /* º¯Êı½á¹û×´Ì¬´úÂë */
+ /* å‡½æ•°ç»“æœçŠ¶æ€ä»£ç  */
  #define TRUE 1
  #define FALSE 0
  #define OK 1
  #define ERROR 0
  #define INFEASIBLE -1
- /* #define OVERFLOW -2 ÒòÎªÔÚmath.hÖĞÒÑ¶¨ÒåOVERFLOWµÄÖµÎª3,¹ÊÈ¥µô´ËĞĞ */
- typedef int Status; /* StatusÊÇº¯ÊıµÄÀàĞÍ,ÆäÖµÊÇº¯Êı½á¹û×´Ì¬´úÂë£¬ÈçOKµÈ */
- typedef int Boolean; /* BooleanÊÇ²¼¶ûÀàĞÍ,ÆäÖµÊÇTRUE»òFALSE */
+ /* #define OVERFLOW -2 å› ä¸ºåœ¨math.hä¸­å·²å®šä¹‰OVERFLOWçš„å€¼ä¸º3,æ•…å»æ‰æ­¤è¡Œ */
+ typedef int Status; /* Statusæ˜¯å‡½æ•°çš„ç±»å‹,å…¶å€¼æ˜¯å‡½æ•°ç»“æœçŠ¶æ€ä»£ç ï¼Œå¦‚OKç­‰ */
+ typedef int Boolean; /* Booleanæ˜¯å¸ƒå°”ç±»å‹,å…¶å€¼æ˜¯TRUEæˆ–FALSE */
