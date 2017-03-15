@@ -9,5 +9,5 @@ void main(){
 	pointer1 = &a;
 	pointer2 = &b;
 	printf("%d,%d\n",a,b);
-	printf("%d,%d\n",&pointer1,&pointer2);
+	printf("%d,%d\n",pointer1,pointer2);
 }

@@ -1,5 +1,5 @@
  /* main1-1.c 检验基本操作bo1-1.c的主函数 */
- #include"c1.h" /* 要将程序中所有#include命令所包含的文件拷贝到当前目录下 */
+ #include"../c1.h" /* 要将程序中所有#include命令所包含的文件拷贝到当前目录下 */
  /* 以下2行可根据需要选用一个（且只能选用一个），而不需改变基本操作bo1-1.c */
  typedef int ElemType; /* 定义抽象数据类型ElemType在本程序中为整型 */
  /*typedef double ElemType; /* 定义抽象数据类型ElemType在本程序中为双精度型 */
