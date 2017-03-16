@@ -9,6 +9,11 @@ Status InitStack(SqStack *S)
     (*S).stacksize = STACK_INIT_SIZE;
 }
 
+Status clearStack(SqStack *S){
+    (*S).top = (*S).base;
+    return OK;
+}
+
 Status DestroyStack(SqStack *S)
 {
     free((*S).base);
@@ -40,9 +45,33 @@ Status Pop(SqStack *S,SElemType *e)
     return OK;
 }
 
+Status getPop(SqStack *S,SElemType *e)
+{
+    if((*S).top != (*S).base){
+        *e = *--(*S).top;
+    }else{
+        return ERROR;
+    }
+}
+
+int stackLength(SqStack S){
+    printf("栈底：%d\n",S.base);
+    printf("栈顶：%d\n",S.top);
+    return S.top - S.base;
+}
+
 Status StackTraverse(SqStack S)
 {
     while(S.top>S.base)
         printf("%d\n",*S.base++);
     return OK;
+}
+
+Status StackEmpty(SqStack S)
+{
+    if(S.top == S.base){
+        return TRUE;
+    }else{
+        return FALSE;
+    }
 }

@@ -24,4 +24,6 @@ void main(){
     *p = b;  //通过指针变量修改内存上的数据
     c = *p;  //通过指针变量获取内存上的数据
     printf("%d, %d, %d, %d,%d\n", a, b, c, *p, p);
+
+	printf("%d,%s",NULL,NULL);
 }
