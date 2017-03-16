@@ -31,6 +31,15 @@ Status Push(SqStack *S,SElemType e)
     return OK;
 }
 
+Status Pop(SqStack *S,SElemType *e)
+{
+    if((*S).top == (*S).base){
+        return ERROR;
+    }
+    *e = *--(*S).top;
+    return OK;
+}
+
 Status StackTraverse(SqStack S)
 {
     while(S.top>S.base)
