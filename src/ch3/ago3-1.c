@@ -11,16 +11,16 @@ void main(){
     SElemType e;
     scanf("%d",&a);
     // a = 17;
-    while(a/8 > 0){
+    while(a){
         Push(&s,a%8);
         a = a/8;
     }
-    Push(&s,a%8);
     // printf("%d",s.stacksize);
     // printf("%d",a);
     // StackTraverse(s);
-    while(getPop(&s,&e)){
+    while(!StackEmpty(&s))){
+        Pop(&s,&e);
         printf("%d",e);
     }
-    scanf("%d",&a);
+    // scanf("%d",&a);
 }
