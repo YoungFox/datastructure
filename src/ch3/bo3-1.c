@@ -45,10 +45,10 @@ Status Pop(SqStack *S,SElemType *e)
     return OK;
 }
 
-Status getPop(SqStack *S,SElemType *e)
+Status getTop(SqStack *S,SElemType *e)
 {
     if((*S).top != (*S).base){
-        *e = *--(*S).top;
+        *e = *((*S).top-1);
     }else{
         return ERROR;
     }
