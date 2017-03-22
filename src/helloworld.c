@@ -1,6 +1,7 @@
 // Hello World Program
 
 #include<stdio.h>
+#include<stdlib.h>
 
 void main(){
 	// int a,b;
@@ -29,22 +30,34 @@ void main(){
 	
 
 	 /* strlen:  return length of string s */
-   int strlen(char *s)
-	{
-		int n;
-		for (n = 0; *s != '\0'; s++)
-		{	n++;
-		printf("char is:%c\n",*s);
-		}
-		return n; 
-	}
+//    int strlen(char *s)
+// 	{
+// 		int n;
+// 		for (n = 0; *s != '\0'; s++)
+// 		{	n++;
+// 		printf("char is:%c\n",*s);
+// 		}
+// 		return n; 
+// 	}
 
-	char char1[3] = {'a','b'};
-	char arr[10];
-	char *p1 = char1;
+// 	char char1[3] = {'a','b'};
+// 	char arr[10];
+// 	char *p1 = char1;
 	// int l1 = strlen("akjfladjfkj");
 	// int l2 = strlen(arr);
-	int l3 = strlen(p1);
-	printf("%c",char1[5]);
+	// int l3 = strlen(p1);
+	// printf("%c",char1[5]);
 	// printf("tree lengths:%d,%d,%d",l1,l2,l3);
+	
+	int *qp;
+    int a =1;
+	int b =2;
+	qp =  malloc(4*sizeof(int));
+	// qp + 1 = &b;	
+	*qp = 1;
+
+	*(qp+1)  = b;
+
+	printf("%d",qp[1]);
+
 }

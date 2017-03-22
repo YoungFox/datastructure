@@ -35,3 +35,43 @@ Status QueueEmpty(SqQueue *Q){
 int QueueLength(SqQueue *Q){
     return ((*Q).rear = (*Q).front);
 }
+
+Status GetHead(SqQueue Q,QElemType *e){
+    if(Q.front == Q.rear){
+        return ERROR;
+    }
+    *e = *(Q.base + Q.front);
+}
+
+Status EnQueue(SqQueue *Q,QElemType e){
+    // 插入新元素到队尾
+    if((*Q).rear>=MAXQSIZE){
+        (*Q).base = (QElemType *)realloc((*Q).base,((*Q).rear+1)*sizeof(QElemType))
+        if(!(*Q).base){
+            return ERROR;
+        }
+    }
+    *((*Q).base + (*Q).rear) = e;
+    (*Q).rear++;
+    return OK;
+}
+
+Status DeQueue(SqQueue *Q,QElemType *e){
+    if((*Q).front == (*Q).rear){
+        return ERROR;
+    }
+    *e = (*Q).base[(*Q).front];
+    (*Q).front = (*Q).front+1;
+    return OK;
+}
+
+Status QueueTraverse(SqQueue Q,void(*vi){QElemType}){
+    int i;
+    i = Q.front;
+    while(i!=Q.rear){
+        vi(*(Q.base+i));
+        i++;
+    };
+    printf("\n");
+    return OK;
+}
