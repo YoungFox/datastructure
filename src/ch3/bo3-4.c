@@ -26,14 +26,14 @@ Status ClearQueue(SqQueue *Q){
 
 Status QueueEmpty(SqQueue *Q){
     if((*Q).front == (*Q).rear){
-        return TRUE
+        return TRUE;
     }else{
         return FALSE;
     }
 }
 
 int QueueLength(SqQueue *Q){
-    return ((*Q).rear = (*Q).front);
+    return ((*Q).rear - (*Q).front);
 }
 
 Status GetHead(SqQueue Q,QElemType *e){
@@ -46,7 +46,7 @@ Status GetHead(SqQueue Q,QElemType *e){
 Status EnQueue(SqQueue *Q,QElemType e){
     // 插入新元素到队尾
     if((*Q).rear>=MAXQSIZE){
-        (*Q).base = (QElemType *)realloc((*Q).base,((*Q).rear+1)*sizeof(QElemType))
+        (*Q).base = (QElemType *)realloc((*Q).base,((*Q).rear+1)*sizeof(QElemType));
         if(!(*Q).base){
             return ERROR;
         }
@@ -65,7 +65,7 @@ Status DeQueue(SqQueue *Q,QElemType *e){
     return OK;
 }
 
-Status QueueTraverse(SqQueue Q,void(*vi){QElemType}){
+Status QueueTraverse(SqQueue Q,void(*vi)(QElemType)){
     int i;
     i = Q.front;
     while(i!=Q.rear){
