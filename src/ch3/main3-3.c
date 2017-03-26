@@ -8,7 +8,7 @@ void visit(QElemType i){
     printf("%d",i);
 }
 
-int main(){
+void main(){
     Status j;
     int i = 0;
     int l;
@@ -37,5 +37,4 @@ int main(){
     }
     ClearQueue(&Q);
     printf("清空队列后，队列是否为空？%u(1:空 0：否)\n",QueueEmpty(Q));
-    return 0;
 }
