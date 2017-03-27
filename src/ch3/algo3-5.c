@@ -137,11 +137,7 @@ void main(){
 
     printf("请输入起点的行数，列数：\n");
     // scanf("%d,%d",&begin.x,&begin.y);
-<<<<<<< HEAD
     begin.x = 2;
-=======
-    begin.x = 1;
->>>>>>> 25dd564f3226e1f75b57a33012ca0d0c91079503
     begin.y = 1;
 
     printf("请输入终点的行数，列数：");
