@@ -43,21 +43,23 @@ void main(){
 // 	char char1[3] = {'a','b'};
 // 	char arr[10];
 // 	char *p1 = char1;
-	// int l1 = strlen("akjfladjfkj");
-	// int l2 = strlen(arr);
-	// int l3 = strlen(p1);
-	// printf("%c",char1[5]);
-	// printf("tree lengths:%d,%d,%d",l1,l2,l3);
+// 	int l1 = strlen("akjfladjfkj");
+// 	int l2 = strlen(arr);
+// 	int l3 = strlen(p1);
+// 	printf("%c",char1[5]);
+// 	printf("tree lengths:%d,%d,%d",l1,l2,l3);
 	
-	int *qp;
-    int a =1;
-	int b =2;
-	qp =  malloc(4*sizeof(int));
-	// qp + 1 = &b;	
-	*qp = 1;
+	// int *qp;
+    // int a =1;
+	// int b =2;
+	// qp =  malloc(4*sizeof(int));
+	// // qp + 1 = &b;	
+	// *qp = 1;
 
-	*(qp+1)  = b;
+	// *(qp+1)  = b;
 
-	printf("%d",qp[1]);
+	// printf("%d",qp[1]);
 
+// char c ='c';
+// printf("%c",c);
 }

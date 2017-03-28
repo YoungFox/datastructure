@@ -24,6 +24,7 @@ int main(void) {
     }
 
     free(ptr);
-
+    int ddd;
+    scanf("%d",ddd);
     return 0;
 }
