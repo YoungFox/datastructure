@@ -24,23 +24,25 @@ Status BitTreeEmpty(SqBiTree T){
 
 Status CreateBiTree(SqBiTree T){
     int i = 0;
-
-    int l;
-    char s[MAX_TREE_SIZE];
-    printf("input node value,space presents empty node<=%d",MAX_TREE_SIZE);
-    gets(s);
-  
-    l=strlen(s);
-    for(;i<l;i++){
-        T[i] = s[i];
-        if(i!=0&&T[(i+1)/2-1] == Nil&&T[i]!=Nil){
-            printf("not root node and have no parents node%c\n",T[i]);
-            exit(ERROR);
+    printf("input the value,0 is empty node,999 is end:\n");
+    while(1){
+        scanf("%d",&T[i]);
+        if(T[i] == 999){
+            break;
         }
+
+        if(i!=0&&T[(i+1)/2-1]==Nil&&T[i]!=Nil){
+            printf("exist a no-root node whitch has no parents");
+        }
+        i++;
     }
-    for(;i<MAX_TREE_SIZE;i++){
+
+    while(i<MAX_TREE_SIZE){
         T[i] = Nil;
+        i++;
     }
+
+    return OK;
 }
 
 int BitTreeDepth(SqBiTree T){
@@ -65,4 +67,20 @@ Status Root(SqBiTree T,TElemType *e){
         *e=T[0];
         return OK;
     }
+}
+
+TElemType Value(SqBiTree T,position e){ 
+    return T[(int)pow(2,e.level-1)+e.order - 2];
+}
+
+Status Assign(SqBiTree T,position e,TElemType value){
+    int i=T[(int)pow(2,e.level-1)+e.order - 2];
+    if(value!=Nil&&T[(i+1)/2-1] == Nil){
+        return ERROR;
+    }else if(value==Nil&&(T[i*2+1]!=Nil||T[i*2+2]!=Nil)){
+        return ERROR;
+    }
+
+    T[i] = value;
+    return OK;
 }

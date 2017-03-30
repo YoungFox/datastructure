@@ -1,13 +1,13 @@
 // 二叉树
 
-#define CHAR 1
+#define CHAR 0
 #include"../c1.h"
 
 #if CHAR
     typedef char TElemType;
     TElemType Nil = ' ';
 #else
-    typedef char TElemType;
+    typedef int TElemType;
     TElemType Nil = 0;
 #endif
 #include"c6-1.h"
@@ -29,7 +29,22 @@ void main(){
 
     Root(T,&e);
 
-    printf("root is:%c",e);
+    printf("root is:%d\n",e);
+
+    printf("input position to get value(level,order)\n");
+    scanf("%d%d",&p.level,&p.order);
+
+    printf("value is %d\n",Value(T,p));
+
+    printf("input position and value to change old value\n");    
+
+    scanf("%d%d%d",&p.level,&p.order,&e);
+
+    // printf("input value is %c\n", ee);
+    Assign(T,p,e);
+
+    printf("the value is %d after changed\n",Value(T,p));
+    
 
     int d;
     scanf("%d",d);
