@@ -74,7 +74,7 @@ TElemType Value(SqBiTree T,position e){
 }
 
 Status Assign(SqBiTree T,position e,TElemType value){
-    int i=T[(int)pow(2,e.level-1)+e.order - 2];
+    int i=(int)pow(2,e.level-1)+e.order - 2;
     if(value!=Nil&&T[(i+1)/2-1] == Nil){
         return ERROR;
     }else if(value==Nil&&(T[i*2+1]!=Nil||T[i*2+2]!=Nil)){
@@ -83,4 +83,91 @@ Status Assign(SqBiTree T,position e,TElemType value){
 
     T[i] = value;
     return OK;
+}
+
+TElemType Parent(SqBiTree T,TElemType e){
+    int i;
+    if(T[0] == Nil){
+        return Nil;
+    }
+
+    for(i=1;i<=MAX_TREE_SIZE-1;i++){
+        if(T[i] == e){
+            return T[(i+1)/2-1];
+        }
+    }
+    return Nil;
+}
+
+TElemType LeftChild(SqBiTree T,TElemType e){
+    int i;
+    if(T[0] == Nil){
+        return Nil;
+    }
+    for(i=0;i<MAX_TREE_SIZE;i++){
+        if(T[i] == e){
+            return T[(i*2)+1];
+        }
+    }
+    return Nil;
+}
+
+TElemType RightChild(SqBiTree T,TElemType e){
+    int i;
+    if(T[0] == Nil){
+        return Nil;
+    }
+    for(i=0;i<MAX_TREE_SIZE;i++){
+        if(T[i] == e){
+            return T[(i*2)+2];
+        }
+    }
+    return Nil;
+}
+
+TElemType LeftSibling(SqBiTree T,TElemType e){
+    int i;
+    if(T[0] == Nil){
+        return Nil;
+    }
+
+    for(i=1;i<MAX_TREE_SIZE-1;i++){
+        if(T[i] == e&&i%2==0){
+            return T[i-1];
+        }
+    }
+    return Nil;
+}
+
+
+TElemType RightSibling(SqBiTree T,TElemType e){
+    int i;
+    if(T[0] == Nil){
+        return Nil;
+    }
+
+    for(i=1;i<MAX_TREE_SIZE-1;i++){
+        if(T[i] == e&&i%2){
+            return T[i+1];
+        }
+    }
+    return Nil;
+}
+
+// void Move(){
+
+// }
+
+void LevelOrderTraverse(SqBiTree T,Status(*Visit)(TElemType)){
+    int i=MAX_TREE_SIZE-1,j;
+    while(T[i] == Nil){
+        i--;
+    }
+    for(j=0;j<=i;j++){
+        if(T[j]!=Nil){
+            Visit(T[j]);
+        }
+    }
+
+    printf("\n");
 }

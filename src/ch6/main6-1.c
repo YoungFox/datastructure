@@ -45,6 +45,14 @@ void main(){
 
     printf("the value is %d after changed\n",Value(T,p));
     
+    printf("node%d 's parent is%d",e,Parent(T,e));
+
+    printf("leftchild is %d,rightchild is %d\n",LeftChild(T,e),RightChild(T,e));
+
+    printf("left sibling is %d,right sibling is %d\n",LeftSibling(T,e),RightSibling(T,e));
+
+    printf("visit in order");
+    LevelOrderTraverse(T,visit);
 
     int d;
     scanf("%d",d);
