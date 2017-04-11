@@ -14,7 +14,7 @@ void DestroyBiTree(){
 
 #define ClearBiTree InitBiTree;//顺序存储结构中，二者完全一样
 
-Status BitTreeEmpty(SqBiTree T){
+Status BiTreeEmpty(SqBiTree T){
     if(T[0] == Nil){
         return TRUE;
     }else{
@@ -61,7 +61,7 @@ int BitTreeDepth(SqBiTree T){
 }
 
 Status Root(SqBiTree T,TElemType *e){
-    if(BitTreeEmpty(T)){
+    if(BiTreeEmpty(T)){
         return ERROR;
     }else{
         *e=T[0];
@@ -170,4 +170,64 @@ void LevelOrderTraverse(SqBiTree T,Status(*Visit)(TElemType)){
     }
 
     printf("\n");
+}
+
+Status(*VisitFunc)(TElemType);//函数变量
+
+void InTraverse(SqBiTree T,int e){
+    if(T[2*e+1]!=Nil){
+       InTraverse(T,2*e+1); 
+    }
+    VisitFunc(e);
+    if(T[2*e+2]!=Nil){
+        InTraverse(T,2*e+2);
+    }
+}
+
+Status InOrderTraverse(SqBiTree T,Status(*Visit)(TElemType)){
+    VisitFunc = Visit;
+
+    if(!BiTreeEmpty(T)){
+        InTraverse(T,0);
+    }
+    printf("\n");
+}
+
+void PostTraverse(SqBiTree T,int e){
+    if(T[2*e+1]!=Nil){
+        PostTraverse(T,2*e+1);
+    }
+    if(T[2*e+2]!=Nil){
+        PostTraverse(T,2*e+2);
+    }
+    VisitFunc(T[e]);
+}
+
+Status PostOrderTraverse(SqBiTree T,Status(*Visit)(TElemType)){
+    // 后序遍历
+    VisitFunc = Visit;
+    if(!BiTreeEmpty(T)){
+        PostTraverse(T,0);
+    }
+    printf("\n");
+    return OK;
+}
+
+void PreTraverse(SqBiTree T,int e){
+    VisitFunc(T[e]);
+    if(T[2*e+1]!=Nil){
+        PreTraverse(T,2*e+1);
+    }
+    if(T[2*e+2]!=Nil){
+        PreTraverse(T,2*e+2);
+    }
+}
+
+Status PreOrderTraverse(SqBiTree T,Status(*Visit)(TElemType)){
+    VisitFunc=Visit;
+    if(!BiTreeEmpty(T)){
+        PreTraverse(T,0);
+    }
+    printf("\n");
+    return OK;
 }

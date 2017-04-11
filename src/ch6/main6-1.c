@@ -51,8 +51,17 @@ void main(){
 
     printf("left sibling is %d,right sibling is %d\n",LeftSibling(T,e),RightSibling(T,e));
 
-    printf("visit in order");
+    printf("visit level");
     LevelOrderTraverse(T,visit);
+
+    printf("visit in order");
+    InOrderTraverse(T,visit);
+
+    printf("visit in post order\n");
+    PostOrderTraverse(T,visit);
+
+    printf("visit in pre order\n");
+    PreOrderTraverse(T,visit);
 
     int d;
     scanf("%d",d);
