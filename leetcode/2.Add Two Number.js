@@ -9,6 +9,7 @@ function ListNode(val) {
  * @param {ListNode} l1
  * @param {ListNode} l2
  * @return {ListNode}
+ * 方法1
  */
 var addTwoNumbers = function (l1, l2) {
     // var tmp 
