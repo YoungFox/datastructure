@@ -21,11 +21,11 @@ var findMedianSortedArrays = function (nums1, nums2) {
         i = Math.floor((iMin + iMax) / 2)
         j = Math.floor((m + n + 1) / 2 - i)
         if (i > 0 && nums1[i - 1] > nums2[j]) {
-            // i太大 
+            // i太大
             iMax = i - 1
             continue
         } else if (i < m && nums2[j - 1] > nums1[i]) {
-            // i太小 ,要++啊，不加有可能死循环，比如[0],[1,2]
+            // i太小
             iMin = i + 1
             continue
         } else {
@@ -34,7 +34,7 @@ var findMedianSortedArrays = function (nums1, nums2) {
             if (i === 0) {
                 maxLeft = nums2[j - 1]
             } else if (j === 0) {
-                maxLeft = nums1[i]
+                maxLeft = nums1[i - 1]
             } else {
                 maxLeft = Math.max(nums1[i - 1], nums2[j - 1])
             }
@@ -54,5 +54,5 @@ var findMedianSortedArrays = function (nums1, nums2) {
     }
 };
 
-var x = findMedianSortedArrays([0], []);
+var x = findMedianSortedArrays([1, 2], [3, 4]);
 console.log(x)
