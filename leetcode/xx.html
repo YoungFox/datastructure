@@ -14,32 +14,39 @@
   * @param {number} x
   * @return {number}
   */
-        var reverse = function (x) {
-            let positive = true;
-            if(x < 0){
-                positive = false;
-                x = Math.abs(x)
-            }
-            let tmpNumS = String(x).split('')
+        var isMatch = function (s, p) {
+            var i = j = 0
+            var res = ''
+            var curS = ''
+            while (i < s.length || j < p.length) {
+                if (s.length === 0 && p[0] !== '*' && p[1] === '*') {
+                    break
+                }
 
-            while(tmpNumS[0] === '0'){
-                tmpNumS.shift()
-            }
-            tmpNumS = tmpNumS.reverse().join('') 
-            let tmpNum = Number(tmpNumS)
-            let res = tmpNum
-            if(!positive){
-                res = -res
+                if (curS === s[i]) {
+                    if (p[j] === '*') {
+                        i++
+                        continue
+                    } else if (s[i] === p[j] || p[j] === '.') {
+                        i++
+                        j++
+                        continue
+                    }
+                }else {
+                    if(s[i] === p[j] || p[j] === '.'){
+                        i++
+                        j++
+                        curS = s[i]
+                        continue
+                    }
+                }
+
             }
 
-            if(res < -Math.pow(2,31) || res > Math.pow(2,31) -1){
-                res = 0
-            }
-            
-            return res
+            return s === res
         };
-        
-        console.log(reverse(-12300))
+
+        console.log(isMatch('axd', 'a*'))
     </script>
 </body>
 
