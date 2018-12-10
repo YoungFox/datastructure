@@ -11,42 +11,52 @@
 <body>
     <script>
         /**
-  * @param {number} x
-  * @return {number}
-  */
-        var isMatch = function (s, p) {
-            var i = j = 0
-            var res = ''
-            var curS = ''
-            while (i < s.length || j < p.length) {
-                if (s.length === 0 && p[0] !== '*' && p[1] === '*') {
-                    break
-                }
-
-                if (curS === s[i]) {
-                    if (p[j] === '*') {
-                        i++
-                        continue
-                    } else if (s[i] === p[j] || p[j] === '.') {
-                        i++
-                        j++
-                        continue
-                    }
-                }else {
-                    if(s[i] === p[j] || p[j] === '.'){
-                        i++
-                        j++
-                        curS = s[i]
-                        continue
-                    }
-                }
-
+         * @param {string} s
+         * @return {string}
+         */
+        var longestPalindrome = function (s) {
+            let ss = s.split('').reverse().join('')
+            let res = []
+            let longest = {
+                len: 0,
+                i: 0,
+                j: 0
             }
+            let sL = s.length
+            let ssL = ss.length
 
-            return s === res
+            for (let i = 0; i <= sL; i++) {
+                res[i] = []
+                for (let j = 0; j <= ssL; j++) {
+                    if (i === 0 || j === 0) {
+                        res[i][j] = 0
+                    } else {
+                        if (s[i - 1] === ss[j - 1]) {
+                            res[i][j] = res[i - 1][j - 1] + 1
+                            let sStart = i - res[i][j]
+                            let sEnd = i - 1
+
+                            let ssStart = ssL - j
+                            let ssEnd = ssL - (j - res[i][j]) - 1
+
+                            // console.log(res[i - 1][j - 1],i,j)
+                            if (res[i][j] > longest.len && sStart == ssStart && sEnd == ssEnd) {
+                                longest.len = res[i][j]
+                                longest.i = i
+                                longest.j = j
+                            }
+                        } else {
+                            res[i][j] = 0
+                        }
+                    }
+                }
+            }
+            console.log(longest)
+            return s.slice(longest.i - longest.len, longest.i)
         };
-
-        console.log(isMatch('axd', 'a*'))
+        console.log(longestPalindrome('cbbd'))
+        //abac 
+        //caba
     </script>
 </body>
 
