@@ -10,59 +10,36 @@
 
 <body>
     <script>
-        var longestPalindrome = function (s) {
-            let P = []
-            let longest = 0
-            let resI = 0
-            let s0 = ''
-            for (let x = 0; x < s.length; x++) {
-                if (x === 0) {
-                    s0 = '#' + s[x] + '#'
-                    continue
-                }
-                s0 = s0 + s[x] + '#'
+        var convert = function (s, numRows) {
+            var len = s.length
+            if (len <= 1 || numRows <= 1) {
+                return s
             }
-            let len = s0.length
-
-            let C = R = 0
-            P[0] = 0
-
-            for (let i = 1; i < len; i++) {
-                let iMirror = 2 * C - i
-                if (!P[iMirror]) {
-                    P[iMirror] = 0
-                }
-
-                if (P[iMirror] < R - i) {
-                    P[i] = P[iMirror]
-                    continue
-                } else {
-                    P[i] = R - i
-                }
-                if (P[i] < 0) {
-                    P[i] = 0
-                }
-
-                while (i - P[i] > 0 && i + P[i] < len - 1) {
-                    if (s0[i - P[i] - 1] === s0[i + P[i] + 1]) {
-                        P[i]++
-                        if (P[i] > longest) {
-                            resI = Math.floor((i - P[i]) / 2)
-                            longest = P[i]
-                        }
-                    } else {
-                        break
-                    }
-                }
-
-                if (i + P[i] > R) {
-                    C = i
-                    R = C + P[i]
-                }
+            let resArr = []
+            for (let x = 0; x < numRows; x++) {
+                resArr[x] = []
             }
-            return s.substr(resI, longest)
+
+            let direct = -1
+            let row = 0
+            let res = ''
+
+            for (let i = 0; i < len; i++) {
+                resArr[row].push(s[i])
+
+                if (i % (numRows - 1) === 0) {
+                    direct = -direct
+                }
+                row = row + direct
+            }
+
+            for (let y = 0; y < numRows; y++) {
+                res += resArr[y].join('')
+            }
+            return res
         };
-        console.log(longestPalindrome('ab'))
+
+        console.log(convert('abcd', 3))
     </script>
 </body>
 
