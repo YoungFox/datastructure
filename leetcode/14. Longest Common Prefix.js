@@ -35,4 +35,4 @@ var longestCommonPrefix = function (strs) {
     return res
 };
 
-console.log(longestCommonPrefix(['aa','a']))
+console.log(longestCommonPrefix(['aa']))
