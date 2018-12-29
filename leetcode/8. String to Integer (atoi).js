@@ -36,8 +36,8 @@ var myAtoi = function (str) {
     }
 
     res =  possitive ? res : -res
-    var max = Math.pow(2,31) - 1
-    var min = -Math.pow(2,31)
+    var max = 2**31 - 1
+    var min = -(2**31)
     if(res > max){
         res = max
     }
